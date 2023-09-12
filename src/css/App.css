@@ -26,6 +26,13 @@ section {
   margin: 15px;
   padding: 15px;
   width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  transition: 0.25s ease-in-out;
+}
+
+.edit:hover {
+  transform: scale(1.1);
 }
 
 h4 {
@@ -42,4 +49,11 @@ h4 {
     border-right: 0px;
     border-bottom: 2px dotted black;
   }
+}
+
+textarea {
+  resize: none;
+  font: inherit;
+  font-size: 13px;
+  height: 100px;
 }

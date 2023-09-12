@@ -1,32 +1,87 @@
-export default function fullCv({name, email, phone}) {
-  return <div className="cv">
-    <div className="personal-block block">
-      <div className="full-name">{name || 'Joe Schmo'}</div>
-      <div className="email">{email || 'joeschmo@gmail.com'}</div>
-      <div className="phone">{phone || '206 232 2255'}</div>
-    </div>
-    <div className="education-block block">
-      <h5>Education</h5>
-      <div className="school-name">University of California, Berkeley</div>
-      <div className="years">
-        <span className="year-start">2011 </span>
-        -
-        <span className="year-end"> 2015</span>
-      </div>
-      <div className="major">Economics</div>
-    </div>
-    <div className="work-block block">
-    <h5>Work Experience</h5>
-      <div className="job block">
-        <div className="job-role">Reseller</div>
-        <div className="company-name">Sean Collectibles</div>
-        <div className="years">
-          <span className="year-start">2018 </span>
-          -
-          <span className="year-end"> 2023</span>
+export default function fullCv({ personalInfo, education, workExperience }) {
+  return (
+    <div className="cv">
+      <div className="personal-block block">
+        <div className="personal-flex">
+          <div className="full-name">{personalInfo.name || 'Joe Schmo'}</div>
+          <div className="contact">
+            <div className="phone">{personalInfo.phone || '206 232 2255'}</div>
+            <div className="email">
+              {personalInfo.email || 'joeschmo@gmail.com'}
+            </div>
+          </div>
         </div>
-        <div className="description">I sell stuff oh yea!</div>
+        <div className="objective">
+          Objective:{' '}
+          {personalInfo.objective ||
+            'To launch my career in software development!'}
+        </div>
+      </div>
+      <h5>
+        <i>Education</i>
+      </h5>
+      <div className="education-block block">
+        <div className="education-flex">
+          <div className="school-name">
+            {education.school || 'University of California, Berkeley'}
+          </div>
+          <div className="dates">
+            <span className="date-start">
+              {education.datestart || 'August 2011'}
+            </span>
+            {' - '}
+            <span className="date-end">
+              {education.current || education.dateend || 'May 2015'}
+            </span>
+          </div>
+        </div>
+        <div className="major">Major: {education.major || 'Economics'}</div>
+      </div>
+      <h5>
+        <i>Work Experience</i>
+      </h5>
+      <div className="work-block block">
+        <div className="job">
+          <div className="job-flex">
+            <div className="job-role">
+              <b>{workExperience.title || 'Software Developer'}</b>
+            </div>
+            <div className="dates">
+              <span className="date-start">
+                {workExperience.datestart || 'June 2023'}
+              </span>
+              {' - '}
+              <span className="date-end">
+                {workExperience.current ||
+                  workExperience.dateend ||
+                  'September 2023'}
+              </span>
+            </div>
+          </div>
+          <div className="company-name">
+            <i>{workExperience.company || 'Software Agency'}</i>
+          </div>
+          <div className="description">
+            <DisplayDescription description={workExperience.description} />
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  );
+}
+
+function DisplayDescription({ description }) {
+  if (!description) {
+    return <div>Studied extensively HTML, CSS, Javascript, and React</div>;
+  }
+  return (
+    <div>
+      {description.split('\n').map((line, index) => (
+        <span key={index}>
+          {line}
+          <br />
+        </span>
+      ))}
+    </div>
+  );
 }

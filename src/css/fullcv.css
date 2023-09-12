@@ -6,27 +6,18 @@
   width: 40%;
   aspect-ratio: 8.5 / 11;
   border: 1px solid grey;
+  border-radius: 10px;
   padding: 25px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   background: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.25s ease-in-out;
 }
 
-.block {
-  display: flex;
-  flex-direction: column;
-}
-
-.cv > .block {
-  border-bottom: 1px solid black;
-  gap: 20px;
-}
-
-h5 {
-  margin: 0;
-  padding: 0;
-  font-size: 1.1rem;
+.cv:hover {
+  transform: scale(1.025);
 }
 
 @media only screen and (max-width: 600px) {
@@ -37,4 +28,71 @@ h5 {
     width: 80%;
     margin: 15px 0px;
   }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.personal-block {
+  padding-left: 0px;
+}
+
+h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.personal-flex,
+.education-flex,
+.job-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.job-flex {
+  padding-bottom: 0px;
+}
+
+.full-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+.phone {
+  text-align: right;
+}
+
+.objective {
+  font-size: 0.8rem;
+  padding-left: 10px;
+}
+
+.major {
+  padding-left: 10px;
+}
+
+.job {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.description {
+  padding-left: 10px;
 }
