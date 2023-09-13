@@ -21,13 +21,12 @@ function App() {
     current: '',
     major: '',
   });
-  const [workExperience, setWorkExperience] = useState({
-    title: '',
-    company: '',
-    datestart: '',
-    dateend: '',
-    description: '',
-  });
+  const [workExperience, setWorkExperience] = useState([{}]);
+  // title: '',
+  // company: '',
+  // datestart: '',
+  // dateend: '',
+  // description: '',
   const changeInfo = event => {
     const { name, value, dataset, checked } = event.target;
     let inputValue = value;
@@ -48,14 +47,30 @@ function App() {
         }));
         break;
       case 'work':
-        setWorkExperience(prevState => ({
-          ...prevState,
-          [name]: inputValue,
-        }));
+        setWorkExperience(prevState => {
+          const index = dataset.index;
+          const updatedWorkExperience = [...prevState];
+          updatedWorkExperience[index][name] = inputValue;
+          return updatedWorkExperience;
+        });
         break;
       default:
         break;
     }
+  };
+  const addWorkExperience = () => {
+    setWorkExperience(prevState => {
+      const updatedWorkExperience = [...prevState];
+      updatedWorkExperience.push({});
+      return updatedWorkExperience;
+    });
+  };
+  const removeWorkExperience = index => {
+    setWorkExperience(prevState => {
+      const updatedWorkExperience = [...prevState];
+      updatedWorkExperience.splice({ index }, 1);
+      return updatedWorkExperience;
+    });
   };
   return (
     <>
@@ -67,6 +82,8 @@ function App() {
           <WorkExperience
             workExperience={workExperience}
             changeInfo={changeInfo}
+            addWorkExperience={addWorkExperience}
+            removeWorkExperience={removeWorkExperience}
           />
         </section>
         <section className="cv-section">

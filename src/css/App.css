@@ -31,6 +31,12 @@ section {
   transition: 0.25s ease-in-out;
 }
 
+.editflex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .edit:hover {
   transform: scale(1.1);
 }
@@ -56,4 +62,32 @@ textarea {
   font: inherit;
   font-size: 13px;
   height: 100px;
+}
+
+.button {
+  text-align: right;
+}
+
+button {
+  color: black;
+  border-radius: 5px;
+  font: inherit;
+  font-weight: bold;
+  transition: 0.5s ease-in-out;
+}
+
+.add {
+  background: rgb(167, 255, 167);
+  font-size: 16px;
+  width: 10%;
+}
+
+.delete {
+  background: rgb(255, 91, 91);
+  font-size: 13px;
+  width: 8%;
+}
+
+button:hover {
+  transform: scale(1.15);
 }

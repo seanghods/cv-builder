@@ -1,6 +1,6 @@
 export default function PersonalInfo({ personalInfo, changeInfo }) {
   return (
-    <div className="personal-edit edit">
+    <div className="edit">
       <h4>Personal Info</h4>
       <input
         type="text"

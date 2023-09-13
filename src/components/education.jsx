@@ -1,6 +1,6 @@
 export default function Education({ education, changeInfo }) {
   return (
-    <div className="education-edit edit">
+    <div className="edit">
       <h4>Education</h4>
       <input
         type="text"

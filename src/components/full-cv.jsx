@@ -41,30 +41,32 @@ export default function fullCv({ personalInfo, education, workExperience }) {
         <i>Work Experience</i>
       </h5>
       <div className="work-block block">
-        <div className="job">
-          <div className="job-flex">
-            <div className="job-role">
-              <b>{workExperience.title || 'Software Developer'}</b>
+        {workExperience.map((obj, index) => {
+          return (
+            <div className="job" key={index}>
+              <div className="job-flex">
+                <div className="job-role">
+                  <b>{obj.title || 'Software Developer'}</b>
+                </div>
+                <div className="dates">
+                  <span className="date-start">
+                    {obj.datestart || 'June 2023'}
+                  </span>
+                  {' - '}
+                  <span className="date-end">
+                    {obj.current || obj.dateend || 'September 2023'}
+                  </span>
+                </div>
+              </div>
+              <div className="company-name">
+                <i>{obj.company || 'Software Agency'}</i>
+              </div>
+              <div className="description">
+                <DisplayDescription description={obj.description} />
+              </div>
             </div>
-            <div className="dates">
-              <span className="date-start">
-                {workExperience.datestart || 'June 2023'}
-              </span>
-              {' - '}
-              <span className="date-end">
-                {workExperience.current ||
-                  workExperience.dateend ||
-                  'September 2023'}
-              </span>
-            </div>
-          </div>
-          <div className="company-name">
-            <i>{workExperience.company || 'Software Agency'}</i>
-          </div>
-          <div className="description">
-            <DisplayDescription description={workExperience.description} />
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );
