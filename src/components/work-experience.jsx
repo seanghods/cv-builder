@@ -1,8 +1,8 @@
 export default function WorkExperience({
   workExperience,
   changeInfo,
-  addWorkExperience,
-  removeWorkExperience,
+  addWork,
+  removeWork,
 }) {
   return (
     <div className="edit">
@@ -14,7 +14,8 @@ export default function WorkExperience({
               Work {index + 1}{' '}
               <button
                 className="delete"
-                onClick={() => removeWorkExperience({ index })}
+                data-section="work"
+                onClick={e => removeWork(e, { index })}
               >
                 x
               </button>
@@ -78,7 +79,7 @@ export default function WorkExperience({
         );
       })}
       <div className="button">
-        <button className="add" onClick={addWorkExperience}>
+        <button className="add" onClick={e => addWork(e)}>
           +
         </button>
       </div>

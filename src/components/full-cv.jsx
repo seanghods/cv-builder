@@ -21,21 +21,27 @@ export default function fullCv({ personalInfo, education, workExperience }) {
         <i>Education</i>
       </h5>
       <div className="education-block block">
-        <div className="education-flex">
-          <div className="school-name">
-            {education.school || 'University of California, Berkeley'}
-          </div>
-          <div className="dates">
-            <span className="date-start">
-              {education.datestart || 'August 2011'}
-            </span>
-            {' - '}
-            <span className="date-end">
-              {education.current || education.dateend || 'May 2015'}
-            </span>
-          </div>
-        </div>
-        <div className="major">Major: {education.major || 'Economics'}</div>
+        {education.map((obj, index) => {
+          return (
+            <div className="edu" key={index}>
+              <div className="education-flex">
+                <div className="school-name">
+                  {obj.school || 'University of California, Berkeley'}
+                </div>
+                <div className="dates">
+                  <span className="date-start">
+                    {obj.datestart || 'August 2011'}
+                  </span>
+                  {' - '}
+                  <span className="date-end">
+                    {obj.current || education.dateend || 'May 2015'}
+                  </span>
+                </div>
+              </div>
+              <div className="major">Major: {obj.major || 'Economics'}</div>
+            </div>
+          );
+        })}
       </div>
       <h5>
         <i>Work Experience</i>

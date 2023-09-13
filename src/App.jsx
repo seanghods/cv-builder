@@ -14,19 +14,8 @@ function App() {
     phone: '',
     objective: '',
   });
-  const [education, setEducation] = useState({
-    school: '',
-    datestart: '',
-    dateend: '',
-    current: '',
-    major: '',
-  });
+  const [education, setEducation] = useState([{}]);
   const [workExperience, setWorkExperience] = useState([{}]);
-  // title: '',
-  // company: '',
-  // datestart: '',
-  // dateend: '',
-  // description: '',
   const changeInfo = event => {
     const { name, value, dataset, checked } = event.target;
     let inputValue = value;
@@ -41,10 +30,12 @@ function App() {
         }));
         break;
       case 'education':
-        setEducation(prevState => ({
-          ...prevState,
-          [name]: inputValue,
-        }));
+        setEducation(prevState => {
+          const index = dataset.index;
+          const updatedEducation = [...prevState];
+          updatedEducation[index][name] = inputValue;
+          return updatedEducation;
+        });
         break;
       case 'work':
         setWorkExperience(prevState => {
@@ -58,19 +49,35 @@ function App() {
         break;
     }
   };
-  const addWorkExperience = () => {
-    setWorkExperience(prevState => {
-      const updatedWorkExperience = [...prevState];
-      updatedWorkExperience.push({});
-      return updatedWorkExperience;
-    });
+  const addEduExp = e => {
+    if (e.target.dataset.section == 'work') {
+      setWorkExperience(prevState => {
+        const updatedWorkExperience = [...prevState];
+        updatedWorkExperience.push({});
+        return updatedWorkExperience;
+      });
+    } else if (e.target.dataset.section == 'education') {
+      setEducation(prevState => {
+        const updatedEducation = [...prevState];
+        updatedEducation.push({});
+        return updatedEducation;
+      });
+    }
   };
-  const removeWorkExperience = index => {
-    setWorkExperience(prevState => {
-      const updatedWorkExperience = [...prevState];
-      updatedWorkExperience.splice({ index }, 1);
-      return updatedWorkExperience;
-    });
+  const removeEduExp = (e, index) => {
+    if (e.target.dataset.section == 'work') {
+      setWorkExperience(prevState => {
+        const updatedWorkExperience = [...prevState];
+        updatedWorkExperience.splice({ index }, 1);
+        return updatedWorkExperience;
+      });
+    } else if (e.target.dataset.section == 'education') {
+      setEducation(prevState => {
+        const updatedEducation = [...prevState];
+        updatedEducation.splice({ index }, 1);
+        return updatedEducation;
+      });
+    }
   };
   return (
     <>
@@ -78,12 +85,17 @@ function App() {
       <div className="container">
         <section className="edit-section">
           <PersonalInfo personalInfo={personalInfo} changeInfo={changeInfo} />
-          <Education education={education} changeInfo={changeInfo} />
+          <Education
+            education={education}
+            changeInfo={changeInfo}
+            addEdu={addEduExp}
+            removeEdu={removeEduExp}
+          />
           <WorkExperience
             workExperience={workExperience}
             changeInfo={changeInfo}
-            addWorkExperience={addWorkExperience}
-            removeWorkExperience={removeWorkExperience}
+            addWork={addEduExp}
+            removeWork={removeEduExp}
           />
         </section>
         <section className="cv-section">
