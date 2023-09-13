@@ -21,12 +21,13 @@ function App() {
     current: '',
     major: '',
   });
-  const [workExperience, setWorkExperience] = useState([{}]);
-  // title: '',
-  // company: '',
-  // datestart: '',
-  // dateend: '',
-  // description: '',
+  const [workExperience, setWorkExperience] = useState({
+    title: '',
+    company: '',
+    datestart: '',
+    dateend: '',
+    description: '',
+  });
   const changeInfo = event => {
     const { name, value, dataset, checked } = event.target;
     let inputValue = value;
