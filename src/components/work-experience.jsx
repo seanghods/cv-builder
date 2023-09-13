@@ -20,6 +20,7 @@ export default function WorkExperience({
                 x
               </button>
             </h4>
+            <label>Job Title</label>
             <input
               type="text"
               name="title"
@@ -27,8 +28,9 @@ export default function WorkExperience({
               data-index={index}
               value={obj.title}
               onChange={changeInfo}
-              placeholder="Job Title"
+              placeholder="..."
             />
+            <label>Company</label>
             <input
               type="text"
               name="company"
@@ -36,8 +38,9 @@ export default function WorkExperience({
               data-index={index}
               value={obj.company}
               onChange={changeInfo}
-              placeholder="Company"
+              placeholder="..."
             />
+            <label>Date Started</label>
             <input
               type="text"
               name="datestart"
@@ -45,8 +48,9 @@ export default function WorkExperience({
               data-index={index}
               value={obj.datestart}
               onChange={changeInfo}
-              placeholder="Date Started"
+              placeholder="..."
             />
+            <label>Date Ended</label>
             <input
               type="text"
               name="dateend"
@@ -54,7 +58,7 @@ export default function WorkExperience({
               data-index={index}
               value={obj.dateend}
               onChange={changeInfo}
-              placeholder="Date Ended"
+              placeholder="..."
             />
             <label>
               <input
@@ -67,19 +71,20 @@ export default function WorkExperience({
               />
               Currently Working
             </label>
+            <label>Role Description</label>
             <textarea
               name="description"
               data-section="work"
               data-index={index}
               value={obj.description}
               onChange={changeInfo}
-              placeholder="Role Description"
+              placeholder="..."
             />
           </div>
         );
       })}
       <div className="button">
-        <button className="add" onClick={e => addWork(e)}>
+        <button className="add" data-section="work" onClick={e => addWork(e)}>
           +
         </button>
       </div>

@@ -3,6 +3,7 @@
 }
 
 .cv {
+  margin-top: 50px;
   width: 40%;
   aspect-ratio: 8.5 / 11;
   border: 1px solid grey;
