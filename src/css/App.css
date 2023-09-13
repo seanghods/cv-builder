@@ -57,3 +57,22 @@ textarea {
   font-size: 13px;
   height: 100px;
 }
+
+label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.buttondiv {
+  text-align: right;
+}
+
+button {
+  width: 10%;
+  font: inherit;
+  font-size: 12px;
+  background: skyblue;
+  border-radius: 5px;
+  /* color: whitesmoke; */
+  border: 1px solid grey;
+}

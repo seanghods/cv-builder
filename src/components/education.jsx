@@ -2,29 +2,32 @@ export default function Education({ education, changeInfo }) {
   return (
     <div className="education-edit edit">
       <h4>Education</h4>
+      <label>School</label>
       <input
         type="text"
         name="school"
         data-section="education"
         value={education.school}
         onChange={changeInfo}
-        placeholder="School"
+        placeholder="..."
       />
+      <label>Date Started</label>
       <input
         type="text"
         name="datestart"
         data-section="education"
         value={education.datestart}
         onChange={changeInfo}
-        placeholder="Date Started"
+        placeholder="..."
       />
+      <label>Date Graduated</label>
       <input
         type="text"
         name="dateend"
         data-section="education"
         value={education.dateend}
         onChange={changeInfo}
-        placeholder="Date Graduated"
+        placeholder="..."
       />
       <label>
         <input
@@ -36,13 +39,14 @@ export default function Education({ education, changeInfo }) {
         />
         Currently Studying
       </label>
+      <label>Major / Focus of Study</label>
       <input
         type="text"
         name="major"
         data-section="education"
         value={education.major}
         onChange={changeInfo}
-        placeholder="Major"
+        placeholder="..."
       />
     </div>
   );
