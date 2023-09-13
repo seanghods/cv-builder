@@ -21,50 +21,58 @@ export default function fullCv({ personalInfo, education, workExperience }) {
         <i>Education</i>
       </h5>
       <div className="education-block block">
-        <div className="education-flex">
-          <div className="school-name">
-            {education.school || 'University of California, Berkeley'}
-          </div>
-          <div className="dates">
-            <span className="date-start">
-              {education.datestart || 'August 2011'}
-            </span>
-            {' - '}
-            <span className="date-end">
-              {education.current || education.dateend || 'May 2015'}
-            </span>
-          </div>
-        </div>
-        <div className="major">Major: {education.major || 'Economics'}</div>
+        {education.map((obj, index) => {
+          return (
+            <div className="edu" key={index}>
+              <div className="education-flex">
+                <div className="school-name">
+                  {obj.school || 'University of California, Berkeley'}
+                </div>
+                <div className="dates">
+                  <span className="date-start">
+                    {obj.datestart || 'August 2011'}
+                  </span>
+                  {' - '}
+                  <span className="date-end">
+                    {obj.current || education.dateend || 'May 2015'}
+                  </span>
+                </div>
+              </div>
+              <div className="major">Major: {obj.major || 'Economics'}</div>
+            </div>
+          );
+        })}
       </div>
       <h5>
         <i>Work Experience</i>
       </h5>
       <div className="work-block block">
-        <div className="job">
-          <div className="job-flex">
-            <div className="job-role">
-              <b>{workExperience.title || 'Software Developer'}</b>
+        {workExperience.map((obj, index) => {
+          return (
+            <div className="job" key={index}>
+              <div className="job-flex">
+                <div className="job-role">
+                  <b>{obj.title || 'Software Developer'}</b>
+                </div>
+                <div className="dates">
+                  <span className="date-start">
+                    {obj.datestart || 'June 2023'}
+                  </span>
+                  {' - '}
+                  <span className="date-end">
+                    {obj.current || obj.dateend || 'September 2023'}
+                  </span>
+                </div>
+              </div>
+              <div className="company-name">
+                <i>{obj.company || 'Software Agency'}</i>
+              </div>
+              <div className="description">
+                <DisplayDescription description={obj.description} />
+              </div>
             </div>
-            <div className="dates">
-              <span className="date-start">
-                {workExperience.datestart || 'June 2023'}
-              </span>
-              {' - '}
-              <span className="date-end">
-                {workExperience.current ||
-                  workExperience.dateend ||
-                  'September 2023'}
-              </span>
-            </div>
-          </div>
-          <div className="company-name">
-            <i>{workExperience.company || 'Software Agency'}</i>
-          </div>
-          <div className="description">
-            <DisplayDescription description={workExperience.description} />
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

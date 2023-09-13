@@ -96,3 +96,8 @@ h5 {
 .description {
   padding-left: 10px;
 }
+
+.job,
+.edu {
+  margin-bottom: 13px;
+}
