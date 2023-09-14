@@ -1,9 +1,3 @@
-/* .container {
-  display: flex;
-  height: 90%;
-  width: 100%;
-} */
-
 section {
   display: flex;
   flex-direction: column;
@@ -49,14 +43,6 @@ h4 {
   margin: 0;
   text-align: center;
 }
-
-/* @media only screen and (max-width: 600px) {
-  .edit-section {
-    width: 100%;
-    border-right: 0px;
-    border-bottom: 2px dotted black;
-  }
-} */
 
 textarea {
   resize: none;

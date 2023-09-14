@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   font-family: Helvetica, Arial, sans-serif;
   background: #f3f4f6;
 }
@@ -34,6 +34,9 @@ header h1 {
 }
 
 @media only screen and (max-width: 600px) {
+  #root {
+    grid-template-rows: 4% 70% 26%;
+  }
   body header {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
