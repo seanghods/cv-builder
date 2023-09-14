@@ -5,6 +5,7 @@ import Education from './components/education.jsx';
 import WorkExperience from './components/work-experience.jsx';
 import FullCV from './components/full-cv.jsx';
 import { DragDropContext } from 'react-beautiful-dnd';
+import CvDownload from './components/cv-dl.jsx';
 import './css/App.css';
 import './css/fullcv.css';
 
@@ -132,6 +133,7 @@ function App() {
           </section>
         </DragDropContext>
         <section className="cv-section">
+          <CvDownload />
           <FullCV
             personalInfo={personalInfo}
             education={education}

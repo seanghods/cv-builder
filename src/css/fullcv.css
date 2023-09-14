@@ -3,7 +3,6 @@
 }
 
 .cv {
-  margin-top: 50px;
   width: 40%;
   aspect-ratio: 8.5 / 11;
   border: 1px solid grey;
@@ -101,4 +100,12 @@ h5 {
 .job,
 .edu {
   margin-bottom: 13px;
+}
+
+.dl {
+  margin: 20px;
+}
+
+#download:hover {
+  transform: scale(1.075);
 }

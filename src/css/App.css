@@ -76,6 +76,7 @@ button {
   font: inherit;
   font-weight: bold;
   transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .add {
@@ -119,4 +120,11 @@ label {
 .eduList[data-wrongdragover='true'] {
   background-color: rgb(255, 67, 67);
   border-radius: 10px;
+}
+
+input {
+  background: #e3e4e6;
+  border-radius: 5px;
+  height: 20px;
+  border: 0;
 }

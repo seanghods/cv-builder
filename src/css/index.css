@@ -3,7 +3,7 @@ body {
   padding: 0;
   height: 100vh;
   font-family: Helvetica, Arial, sans-serif;
-  /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(49,175,177,1) 53%, rgba(0,212,255,1) 100%); */
+  background: #f3f4f6;
 }
 
 #root {
@@ -13,10 +13,11 @@ body {
 header {
   text-align: center;
   height: 7%;
-  border-bottom: 3px solid black;
+  border-bottom: 1px solid black;
+  /* background: #0e374e; */
 }
 
 header h1 {
   margin: 0;
-  padding: 25px; 
+  padding: 25px;
 }
