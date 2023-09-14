@@ -4,6 +4,7 @@ import PersonalInfo from './components/personal-info.jsx';
 import Education from './components/education.jsx';
 import WorkExperience from './components/work-experience.jsx';
 import FullCV from './components/full-cv.jsx';
+import { DragDropContext } from 'react-beautiful-dnd';
 import './css/App.css';
 import './css/fullcv.css';
 
@@ -79,25 +80,57 @@ function App() {
       });
     }
   };
+  const onDragEnd = result => {
+    const { destination, source } = result;
+    if (!destination) return;
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.droppableId == 'work'
+    ) {
+      const newWorkExperience = [...workExperience];
+      const workItem = newWorkExperience[source.index];
+      newWorkExperience.splice(source.index, 1);
+      newWorkExperience.splice(destination.index, 0, workItem);
+      setWorkExperience(newWorkExperience);
+    }
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.droppableId == 'education'
+    ) {
+      const newEducation = [...education];
+      const eduItem = newEducation[source.index];
+      newEducation.splice(source.index, 1);
+      newEducation.splice(destination.index, 0, eduItem);
+      setEducation(newEducation);
+    }
+  };
   return (
     <>
       <Header />
       <div className="container">
-        <section className="edit-section">
-          <PersonalInfo personalInfo={personalInfo} changeInfo={changeInfo} />
-          <Education
-            education={education}
-            changeInfo={changeInfo}
-            addEdu={addEduExp}
-            removeEdu={removeEduExp}
-          />
-          <WorkExperience
-            workExperience={workExperience}
-            changeInfo={changeInfo}
-            addWork={addEduExp}
-            removeWork={removeEduExp}
-          />
-        </section>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <section className="edit-section">
+            <PersonalInfo personalInfo={personalInfo} changeInfo={changeInfo} />
+            <Education
+              education={education}
+              changeInfo={changeInfo}
+              addEdu={addEduExp}
+              removeEdu={removeEduExp}
+            />
+            <WorkExperience
+              workExperience={workExperience}
+              changeInfo={changeInfo}
+              addWork={addEduExp}
+              removeWork={removeEduExp}
+            />
+          </section>
+        </DragDropContext>
         <section className="cv-section">
           <FullCV
             personalInfo={personalInfo}
