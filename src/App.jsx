@@ -114,33 +114,31 @@ function App() {
   return (
     <>
       <Header />
-      <div className="container">
-        <DragDropContext onDragEnd={onDragEnd}>
-          <section className="edit-section">
-            <PersonalInfo personalInfo={personalInfo} changeInfo={changeInfo} />
-            <Education
-              education={education}
-              changeInfo={changeInfo}
-              addEdu={addEduExp}
-              removeEdu={removeEduExp}
-            />
-            <WorkExperience
-              workExperience={workExperience}
-              changeInfo={changeInfo}
-              addWork={addEduExp}
-              removeWork={removeEduExp}
-            />
-          </section>
-        </DragDropContext>
-        <section className="cv-section">
-          <CvDownload />
-          <FullCV
-            personalInfo={personalInfo}
+      <DragDropContext onDragEnd={onDragEnd}>
+        <section className="edit-section">
+          <PersonalInfo personalInfo={personalInfo} changeInfo={changeInfo} />
+          <Education
             education={education}
+            changeInfo={changeInfo}
+            addEdu={addEduExp}
+            removeEdu={removeEduExp}
+          />
+          <WorkExperience
             workExperience={workExperience}
+            changeInfo={changeInfo}
+            addWork={addEduExp}
+            removeWork={removeEduExp}
           />
         </section>
-      </div>
+      </DragDropContext>
+      <section className="cv-section">
+        <CvDownload />
+        <FullCV
+          personalInfo={personalInfo}
+          education={education}
+          workExperience={workExperience}
+        />
+      </section>
     </>
   );
 }

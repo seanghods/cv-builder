@@ -1,5 +1,6 @@
 .cv-section {
   width: 75%;
+  grid-column: 2 / 3;
 }
 
 .cv {
