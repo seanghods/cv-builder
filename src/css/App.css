@@ -128,3 +128,9 @@ input {
   height: 20px;
   border: 0;
 }
+
+textarea {
+  background: #e3e4e6;
+  border-radius: 5px;
+  border: 0;
+}
