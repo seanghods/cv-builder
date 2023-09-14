@@ -50,16 +50,13 @@ h4 {
   text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
-  .container {
-    flex-direction: column;
-  }
+/* @media only screen and (max-width: 600px) {
   .edit-section {
     width: 100%;
     border-right: 0px;
     border-bottom: 2px dotted black;
   }
-}
+} */
 
 textarea {
   resize: none;

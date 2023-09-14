@@ -9,25 +9,53 @@ body {
 #root {
   height: 100%;
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 25% 65% 10%;
   grid-template-rows: 6% 94%;
+  margin: 0;
 }
 
 header {
   text-align: center;
   height: 100%;
   border-bottom: 1px solid black;
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
   /* background: #0e374e; */
 }
 
 .header-text {
   position: absolute;
-  left: 53%;
+  left: 57.8%;
   transform: translateX(-50%);
 }
 
 header h1 {
   margin: 0;
   padding: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  body header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+  }
+  body .header-text {
+    width: 100%;
+    left: 50%;
+  }
+  header h1 {
+    padding: 0px;
+    margin-top: 8px;
+  }
+  body .edit-section {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    border-right: 0px;
+    border-bottom: 2px dotted black;
+    height: 100%;
+  }
+  body .cv-section {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    height: 100%;
+  }
 }
