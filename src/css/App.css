@@ -79,6 +79,10 @@ button {
   cursor: pointer;
 }
 
+.edit-section button {
+  padding: 2px;
+}
+
 .add {
   background: rgb(167, 255, 167);
   font-size: 16px;

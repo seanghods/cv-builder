@@ -21,3 +21,9 @@ header h1 {
   margin: 0;
   padding: 25px;
 }
+
+@media only screen and (max-width: 600px) {
+  header h1 {
+    padding: 5px;
+  }
+}
